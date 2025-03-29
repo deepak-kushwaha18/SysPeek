@@ -16,7 +16,7 @@ SHELL_VERSION=$($SHELL --version 2>/dev/null | head -n1)
 DESKTOP_ENVIRONMENT="${XDG_CURRENT_DESKTOP:-Unknown}"
 WINDOW_MANAGER=$(ps -e | grep -m1 -oE 'kwin_x11|mutter|openbox|i3|bspwm|xfwm4|compiz|marco')
 TERMINAL_NAME=$(ps -o comm= -p $(ps -o ppid= -p $(ps -o sid= -p $$)))
-
+#function for System information
 System(){
 echo -e "\e[31m💻💻💻 System Info : 💻💻💻\e[0m"
 echo "----------------------------------"
