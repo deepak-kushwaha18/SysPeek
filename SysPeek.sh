@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\e[35m 🚀🚀🚀 Welcome to SysPeek - a single script to get System information 🚀🚀🚀\e[0m"
+echo -e "\e[35m 🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
 echo -e "\n"
 echo "----------------------------------"
 
