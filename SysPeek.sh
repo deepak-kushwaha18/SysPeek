@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # SysPeek - A powerful script to fetch system information.
+#SysPeek Version:1.1
 # Author: Deepak Kushwaha
 # License: MIT
 
