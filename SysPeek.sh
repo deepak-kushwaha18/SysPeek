@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # SysPeek - A powerful script to fetch system information.
-#SysPeek Version:1.1
+# SysPeek Version:1.2
 # Author: Deepak Kushwaha
 # License: MIT
 
-echo -e "\e[35m 🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
+echo -e "\e[35m🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
 echo "----------------------------------"
 
-# VARIABLES for System information
+# VARIABLES For System Information
 . /etc/os-release
 OS_NAME="${PRETTY_NAME}"
 ARCHITECTURE=$(uname -m)
@@ -19,9 +19,10 @@ SHELL_NAME=$(basename "$SHELL")
 SHELL_VERSION=$($SHELL --version 2>/dev/null | head -n1)
 DESKTOP_ENVIRONMENT="${XDG_CURRENT_DESKTOP:-Unknown}"
 WINDOW_MANAGER=$(ps -e | grep -m1 -oE 'kwin_x11|mutter|openbox|i3|bspwm|xfwm4|compiz|marco')
-TERMINAL_NAME=$(ps -o comm= -p $(ps -o ppid= -p $(ps -o sid= -p $$)))
+TERMINAL_NAME=$(ps -o comm= -p $(ps -o ppid= -p $(ps -o sid= -p $$)) 2>/dev/null || echo "Unknown")
 
-#VARAIBLES FOR Hardware information
+
+# VARAIBLES For Hardware Information
 CPU_MODEL=$(grep "model name" /proc/cpuinfo | head -1 | awk -F': ' '{print $2}')
 CPU_CURRENTSPEED=$(grep "cpu MHz" /proc/cpuinfo | head -1 | awk -F': ' '{print $2}')
 CPU_MAXSPEED=$(($(cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq) / 1000))
@@ -32,7 +33,28 @@ F_RAM=$(awk '/MemFree/ {printf "%.2f GB\n", $2 / 1024 / 1024}' /proc/meminfo)
 STORAGE_INF=$(df -h --output=source,size,used,avail | column -t)
 SWAP_MEM=$(free -h | awk '/Swap/ {print "Total: " $2, "| Used: " $3, "| Free: " $4}')
 
-#function for System information
+# VARIABLES FOR User Information
+CURRENT_USER=$(whoami)
+USER_ID=$(id -u)
+USER_HOMEDIR=$(getent passwd "$USER" | cut -d: -f6)
+CURRENTUSER_GROUPID=$(id -g)
+CURRENTUSER_GROUPNAME=$(id -gn)
+CURRENTUSER_AGROUPID=$(id -G)
+CURRENTUSER_AGROUPNAME=$(id -Gn)
+LOGGEDIN_USERS=$(who)
+LAST_LOGIN=$(last -w -F "$USER" | awk 'NR==1 {print $4, $5, $6, $7, $8}')
+LAST_SYSTEMBOOT=$(who -b | awk '{print $3" "$4}')
+
+# Determine USER_TYPE
+if [[ "$USER_ID" -eq 0 ]]; then
+   USER_TYPE="Root User"
+elif [[ "$USER_ID" -lt 1000 ]]; then
+    USER_TYPE="System User"
+else
+    USER_TYPE="Normal User"
+fi
+
+# Function for System Information
 System(){
 echo -e "\e[31m💻💻💻 System Info : 💻💻💻\e[0m"
 echo "----------------------------------"
@@ -49,7 +71,7 @@ echo -e "\e[31mTERMINAL:\e[0m $TERMINAL_NAME"
 }
 System
 
-#function for Hardware information
+# Function for Hardware information
 Hardware(){
 echo "----------------------------------"
 echo -e "\e[34m🛠️🛠️🛠️ Hardware Info : 🛠️🛠️🛠️\e[0m"
@@ -65,3 +87,21 @@ echo -e "\e[34mStorage Info:\e[0m\n$STORAGE_INF"
 echo -e "\e[34mSwap Memory:\e[0m $SWAP_MEM"
 }
 Hardware
+
+# Function for User Information
+User(){
+echo "----------------------------------"
+echo -e "\e[32m👨‍💻👨‍💻👨‍💻 User Info : 👨‍💻👨‍💻👨‍💻\e[0m"
+echo "----------------------------------"
+echo -e "\e[32mCurrent User:\e[0m $CURRENT_USER"
+echo -e "\e[32mUser Type:\e[0m $USER_TYPE"
+echo -e "\e[32mHome Directory:\e[0m $USER_HOMEDIR"
+echo -e "\e[32mPrimary Group ID:\e[0m $CURRENTUSER_GROUPID"
+echo -e "\e[32mPrimary Group Name:\e[0m $CURRENTUSER_GROUPNAME"
+echo -e "\e[32mAll Group IDs:\e[0m $CURRENTUSER_AGROUPID"
+echo -e "\e[32mAll Group Names:\e[0m $CURRENTUSER_AGROUPNAME"
+echo -e "\e[32mLogged-in Users:\e[0m\n$LOGGEDIN_USERS"
+echo -e "\e[32mLast Login:\e[0m $LAST_LOGIN"
+echo -e "\e[32mLast System Boot:\e[0m $LAST_SYSTEMBOOT"
+}
+User
