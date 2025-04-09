@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # SysPeek - A powerful script to fetch system information.
 # SysPeek Version:1.2
