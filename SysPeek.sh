@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # SysPeek - A powerful script to fetch system information.
-# SysPeek Version:1.2
+# SysPeek Version:1.3
 # Author: Deepak Kushwaha
 # License: MIT
 
 echo -e "\e[35m🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
 echo "----------------------------------"
 
-# VARIABLES For System Information
+# VARIABLES FOR System Information
 . /etc/os-release
 OS_NAME="${PRETTY_NAME}"
 ARCHITECTURE=$(uname -m)
@@ -44,6 +44,8 @@ CURRENTUSER_AGROUPNAME=$(id -Gn)
 LOGGEDIN_USERS=$(who)
 LAST_LOGIN=$(last -w -F "$USER" | awk 'NR==1 {print $4, $5, $6, $7, $8}')
 LAST_SYSTEMBOOT=$(who -b | awk '{print $3" "$4}')
+
+# VARIABLES FOR Network Information
 
 # Determine USER_TYPE
 if [[ "$USER_ID" -eq 0 ]]; then
