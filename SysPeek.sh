@@ -46,6 +46,9 @@ LAST_LOGIN=$(last -w -F "$USER" | awk 'NR==1 {print $4, $5, $6, $7, $8}')
 LAST_SYSTEMBOOT=$(who -b | awk '{print $3" "$4}')
 
 # VARIABLES FOR Network Information
+IPV4_ADDRESS=$(ip addr show | awk '/inet / && !/127.0.0.1/ {print $2}' | cut -d/ -f1 | head -n 1)
+IPV6_ADDRESS=$(ip -6 addr show scope global | awk '/inet6/ {print $2}' | cut -d/ -f1 | head -n 1)
+
 
 # Determine USER_TYPE
 if [[ "$USER_ID" -eq 0 ]]; then
@@ -107,3 +110,13 @@ echo -e "\e[32mLast Login:\e[0m $LAST_LOGIN"
 echo -e "\e[32mLast System Boot:\e[0m $LAST_SYSTEMBOOT"
 }
 User
+
+# Function for Network Information
+Network(){
+    echo "----------------------------------"
+    echo -e "\e[32m🌐🌐🌐 Network Info : 🌐🌐🌐\e[0m"
+    echo "----------------------------------"
+    echo -e "\e[36mIP Address:\e[0m $IPV4_ADDRESS"
+    echo -e "\e[36mIPv6 Address:\e[0m ${IPV6_ADDR:-Unavailable}"
+}
+Network
