@@ -8,7 +8,7 @@
 echo -e "\e[35m🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
 echo "----------------------------------"
 
-# VARIABLES FOR System Information
+# VARIABLES For System Information
 . /etc/os-release
 OS_NAME="${PRETTY_NAME}"
 ARCHITECTURE=$(uname -m)
@@ -33,7 +33,7 @@ F_RAM=$(awk '/MemFree/ {printf "%.2f GB\n", $2 / 1024 / 1024}' /proc/meminfo)
 STORAGE_INF=$(df -h --output=source,size,used,avail | column -t)
 SWAP_MEM=$(free -h | awk '/Swap/ {print "Total: " $2, "| Used: " $3, "| Free: " $4}')
 
-# VARIABLES FOR User Information
+# VARIABLES For User Information
 CURRENT_USER=$(whoami)
 USER_ID=$(id -u)
 USER_HOMEDIR=$(getent passwd "$USER" | cut -d: -f6)
@@ -48,7 +48,8 @@ LAST_SYSTEMBOOT=$(who -b | awk '{print $3" "$4}')
 # VARIABLES FOR Network Information
 IPV4_ADDRESS=$(ip addr show | awk '/inet / && !/127.0.0.1/ {print $2}' | cut -d/ -f1 | head -n 1)
 IPV6_ADDRESS=$(ip -6 addr show scope global | awk '/inet6/ {print $2}' | cut -d/ -f1 | head -n 1)
-
+DEFAULT_GATEWAY=$(ip route | awk '/default/ {print $3}')
+SSID=$(iwgetid -r 2>/dev/null || echo "Not Connected / Wired")
 
 # Determine USER_TYPE
 if [[ "$USER_ID" -eq 0 ]]; then
@@ -59,7 +60,7 @@ else
     USER_TYPE="Normal User"
 fi
 
-# Function for System Information
+# Function For System Information
 System(){
 echo -e "\e[31m💻💻💻 System Info : 💻💻💻\e[0m"
 echo "----------------------------------"
@@ -76,7 +77,7 @@ echo -e "\e[31mTERMINAL:\e[0m $TERMINAL_NAME"
 }
 System
 
-# Function for Hardware information
+# Function For Hardware information
 Hardware(){
 echo "----------------------------------"
 echo -e "\e[34m🛠️🛠️🛠️ Hardware Info : 🛠️🛠️🛠️\e[0m"
@@ -93,7 +94,7 @@ echo -e "\e[34mSwap Memory:\e[0m $SWAP_MEM"
 }
 Hardware
 
-# Function for User Information
+# Function For User Information
 User(){
 echo "----------------------------------"
 echo -e "\e[32m👨‍💻👨‍💻👨‍💻 User Info : 👨‍💻👨‍💻👨‍💻\e[0m"
@@ -111,7 +112,7 @@ echo -e "\e[32mLast System Boot:\e[0m $LAST_SYSTEMBOOT"
 }
 User
 
-# Function for Network Information
+# Function For Network Information
 Network(){
     echo "----------------------------------"
     echo -e "\e[32m🌐🌐🌐 Network Info : 🌐🌐🌐\e[0m"
