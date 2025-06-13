@@ -5,6 +5,21 @@
 # Author: Deepak Kushwaha
 # License: MIT
 
+# Function to print SysPeek ASCII logo
+print_logo() {
+    echo -e "\e[96m"
+    cat << "EOF"
+     _______.____    ____  _______..______    _______  _______  __  ___
+    /       |\   \  /   / /       ||   _  \  |   ____||   ____||  |/  /
+   |   (----` \   \/   / |   (----`|  |_)  | |  |__   |  |__   |  '  / 
+    \   \      \_    _/   \   \    |   ___/  |   __|  |   __|  |    <  
+.----)   |       |  | .----)   |   |  |      |  |____ |  |____ |  .  \ 
+|_______/        |__| |_______/    | _|      |_______||_______||__|\__\           
+
+EOF
+}
+print_logo
+
 echo -e "\e[35m🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
 echo "----------------------------------"
 
@@ -121,3 +136,5 @@ Network(){
     echo -e "\e[36mIPv6 Address:\e[0m ${IPV6_ADDR:-Unavailable}"
 }
 Network
+
+
