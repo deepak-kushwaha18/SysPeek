@@ -81,3 +81,7 @@ syspeek
   ![Network Info](screenshots/networkInfo.png)
   
  > ⚠️ **Note:** Sensitive information like **usernames**, **hostnames**, and **IP addresses** has been **blurred** in the screenshots for **privacy and security reasons**.
+---
+
+## License
+This project is licensed under the [MIT License](LICENSE).
