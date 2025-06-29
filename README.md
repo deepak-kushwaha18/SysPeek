@@ -69,3 +69,15 @@ syspeek
 ---
 
 ## Screenshots
+* ### Main Menu
+  ![Main Menu](screenshots/menu.png)
+* ### System Information
+  ![System Info](screenshots/systemInfo.png)
+* ### Hardware Information
+  ![Hardware Info](screenshots/hardwareInfo.png)
+* ### User Information
+  ![User Info](screenshots/userInfo.png)
+* ### Network Information
+  ![Network Info](screenshots/networkInfo.png)
+  
+ > ⚠️ **Note:** Sensitive information like **usernames**, **hostnames**, and **IP addresses** has been **blurred** in the screenshots for **privacy and security reasons**.
