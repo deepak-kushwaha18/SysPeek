@@ -6,9 +6,9 @@
 2. [Features](#features)
 3. [Installation](#installation)
 4. [How to use](#how-to-use)
-5. [Screenshots]
-6. [License]
-7. [Contributions]
+5. [Screenshots](#screenshots)
+6. [License](#license)
+7. [Contributions](#contributions)
 --- 
 
 ## Description
@@ -85,3 +85,12 @@ syspeek
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
+
+---
+## Contributions
+Contributions are welcome 💙
+
+Feel free to fork this repo, make improvements, and submit a pull request.  
+For major changes, open an issue first for discussion.
+
+
