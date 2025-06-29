@@ -80,15 +80,15 @@ System(){
 echo -e "\e[31m💻💻💻 System Info : 💻💻💻\e[0m"
 echo "----------------------------------"
 echo -e "\e[31mOS:\e[0m $OS_NAME"
-echo -e "\e[31mARCHITECTURE:\e[0m $ARCHITECTURE"
-echo -e "\e[31mKERNEL:\e[0m $KERNEL_VERSION"
-echo -e "\e[31mHOST:\e[0m $HOSTNAME"
-echo -e "\e[31mUPTIME:\e[0m $UPTIME"
-echo -e "\e[31mSHELL:\e[0m $SHELL_NAME"
-echo -e "\e[31mSHELL VERSION:\e[0m $SHELL_VERSION"
+echo -e "\e[31mArchitecture:\e[0m $ARCHITECTURE"
+echo -e "\e[31mKernel:\e[0m $KERNEL_VERSION"
+echo -e "\e[31mHost:\e[0m $HOSTNAME"
+echo -e "\e[31mUptime:\e[0m $UPTIME"
+echo -e "\e[31mShell:\e[0m $SHELL_NAME"
+echo -e "\e[31mShell Version:\e[0m $SHELL_VERSION"
 echo -e "\e[31mDE:\e[0m $DESKTOP_ENVIRONMENT"
 echo -e "\e[31mWM:\e[0m $WINDOW_MANAGER"
-echo -e "\e[31mTERMINAL:\e[0m $TERMINAL_NAME"
+echo -e "\e[31mTerminal:\e[0m $TERMINAL_NAME"
 }
 System
 
