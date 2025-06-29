@@ -53,8 +53,17 @@ chmod +x SysPeek.sh
 ---
 
 ##  How to use
-After making the script executable , you can execute it using following command:
+After making the script executable, you can run it using the following command:
 ```bash
 ./SysPeek.sh
+```
+### Run SysPeek from anywhere
+If you like to run the script from anywhere on your system, move it to `/usr/local/bin`:
+```bash
+Sudo mv SysPeek.sh /usr/local/bin/syspeek
+```
+then just type following command from anywhere in your system from terminal to use the tool:
+```bash
+syspeek
 ```
 
