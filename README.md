@@ -1,7 +1,7 @@
 # SysPeek
 >⚠️**Note:** Please do not share your network information with individuals who may be threat actors or pose a potential security risk.
 ---
-# Table of Contents
+## Table of Contents
 1. [Description](#description)
 2. [Features](#features)
 3. [Installation]
@@ -10,10 +10,12 @@
 6. [License]
 7. [Contributions]
 --- 
+
 ## Description
 SysPeek is an interactive, menu-based information-fetching tool made in Bash that retrieves various details from your Linux distribution — such as System, Hardware, User, and Network information — and showcases them based on your choices.
 It is highly modular, with each function defined specifically for clarity and maintainability. SysPeek is lightweight, works completely offline, and is fully open-source.
 
+---
 ## Features
 - 🎛️**Menu-based interface**&nbsp;&nbsp;(choose what info to display)
 - 🧩 **Modular design**&nbsp;&nbsp;(separate functions for each info type)
@@ -23,4 +25,30 @@ It is highly modular, with each function defined specifically for clarity and ma
 - 🧠 **Extra details**&nbsp;&nbsp;(last login, swap, shell version, groups)
 - 🎨 **Color-coded output**&nbsp;&nbsp;(terminal-friendly output)
 - 🪶 **Lightweight & Bash-only**&nbsp;&nbsp;(no external dependencies)
+---
+
+## Installation 
+
+SysPeek can be installed in two simple ways:
+* ### Method 1: using `wget`
+```bash
+wget https://raw.githubusercontent.com/deepak-kushwaha18/SysPeek/main/SysPeek.sh
+```
+Make the script executable:
+```bash
+chmod +x SysPeek.sh
+```
+* ### Method 2: clone the github repo
+```bash
+git clone https://github.com/deepak-kushwaha18/SysPeek.git
+```
+Navigate to SysPeek directory:
+```bash
+cd SysPeek/
+```
+Make the script executable:
+```bash
+chmod +x SysPeek.sh
+```
+
 
