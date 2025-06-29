@@ -138,7 +138,7 @@ echo -e "\e[32mLast System Boot:\e[0m $LAST_SYSTEMBOOT"
 # Function For Network Information
 Network(){
     echo "----------------------------------"
-    echo -e "\e[32m🌐🌐🌐 Network Info : 🌐🌐🌐\e[0m"
+    echo -e "\e[36m🌐🌐🌐 Network Info : 🌐🌐🌐\e[0m"
     echo "----------------------------------"
     echo -e "\e[36mIP Address:\e[0m $IPV4_ADDRESS"
     echo -e "\e[36mIPv6 Address:\e[0m ${IPV6_ADDRESS:-Unavailable}"
@@ -150,7 +150,7 @@ Network(){
 #User Choice
 echo "----------------------------------"
 echo -e "Informations that can be fetched by SysPeek"
-echo "1) System Information 2) Hardware Information 3) User Information 4) Network Information 5)all information"
+echo "1) System Information 2) Hardware Information 3) User Information 4) Network Information 5)All Information"
 read -p "Enter your choice " userChoice
 case $userChoice in 
 1)  System;;
