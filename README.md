@@ -4,8 +4,8 @@
 ## Table of Contents
 1. [Description](#description)
 2. [Features](#features)
-3. [Installation]
-4. [How to use]
+3. [Installation](#installation)
+4. [How to use](#how-to-use)
 5. [Screenshots]
 6. [License]
 7. [Contributions]
@@ -50,5 +50,11 @@ Make the script executable:
 ```bash
 chmod +x SysPeek.sh
 ```
+---
 
+##  How to use
+After making the script executable , you can execute it using following command:
+```bash
+./SysPeek.sh
+```
 
