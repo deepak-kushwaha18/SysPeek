@@ -62,7 +62,15 @@ LAST_SYSTEMBOOT=$(who -b | awk '{print $3" "$4}')
 
 # VARIABLES FOR Network Information
 IPV4_ADDRESS=$(ip addr show | awk '/inet / && !/127.0.0.1/ {print $2}' | cut -d/ -f1 | head -n 1)
+
+# global IPv6 adress
 IPV6_ADDRESS=$(ip -6 addr show scope global | awk '/inet6/ {print $2}' | cut -d/ -f1 | head -n 1)
+
+# If global ip is empty,fallback link-local ip
+if [[ -z "$IPV6_ADDRESS" ]]; then
+    IPV6_ADDRESS=$(ip -6 addr show | awk '/inet6/ && !/scope host/ {print $2}' | cut -d/ -f1 | head -n 1)
+fi
+
 DEFAULT_GATEWAY=$(ip route | awk '/default/ {print $3}')
 SSID=$(iwgetid -r 2>/dev/null || echo "Not Connected / Wired")
 
@@ -133,7 +141,7 @@ Network(){
     echo -e "\e[32m🌐🌐🌐 Network Info : 🌐🌐🌐\e[0m"
     echo "----------------------------------"
     echo -e "\e[36mIP Address:\e[0m $IPV4_ADDRESS"
-    echo -e "\e[36mIPv6 Address:\e[0m ${IPV6_ADDR:-Unavailable}"
+    echo -e "\e[36mIPv6 Address:\e[0m ${IPV6_ADDRESS:-Unavailable}"
     echo -e "\e[36mDefault Gateway:\e[0m $DEFAULT_GATEWAY"
     echo -e "\e[36mWifi Name:\e[0m $SSID"
 }
