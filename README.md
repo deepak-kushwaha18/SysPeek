@@ -66,4 +66,6 @@ then just type following command from anywhere in your system from terminal to u
 ```bash
 syspeek
 ```
+---
 
+## Screenshots
