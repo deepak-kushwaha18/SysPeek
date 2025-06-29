@@ -134,6 +134,8 @@ Network(){
     echo "----------------------------------"
     echo -e "\e[36mIP Address:\e[0m $IPV4_ADDRESS"
     echo -e "\e[36mIPv6 Address:\e[0m ${IPV6_ADDR:-Unavailable}"
+    echo -e "\e[36mDefault Gateway:\e[0m $DEFAULT_GATEWAY"
+    echo -e "\e[36mWifi Name:\e[0m $SSID"
 }
 Network
 
