@@ -7,7 +7,7 @@
 
 # Function to print SysPeek ASCII logo
 print_logo() {
-    echo -e "\e[96m"
+    echo -e "\e[36m"
     cat << "EOF"
      _______.____    ____  _______..______    _______  _______  __  ___
     /       |\   \  /   / /       ||   _  \  |   ____||   ____||  |/  /
@@ -20,8 +20,7 @@ EOF
 }
 print_logo
 
-echo -e "\e[35m🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
-echo "----------------------------------"
+echo -e "\e[34m🚀🚀🚀 Welcome to SysPeek - No Secrets, Just Pure System Insights. 🚀🚀🚀\e[0m"
 
 # VARIABLES For System Information
 . /etc/os-release
@@ -85,6 +84,7 @@ fi
 
 # Function For System Information
 System(){
+echo "----------------------------------"
 echo -e "\e[31m💻💻💻 System Info : 💻💻💻\e[0m"
 echo "----------------------------------"
 echo -e "\e[31mOS:\e[0m $OS_NAME"
@@ -98,7 +98,7 @@ echo -e "\e[31mDE:\e[0m $DESKTOP_ENVIRONMENT"
 echo -e "\e[31mWM:\e[0m $WINDOW_MANAGER"
 echo -e "\e[31mTerminal:\e[0m $TERMINAL_NAME"
 }
-System
+#System
 
 # Function For Hardware information
 Hardware(){
@@ -115,7 +115,7 @@ echo -e "\e[34mFree RAM:\e[0m $F_RAM"
 echo -e "\e[34mStorage Info:\e[0m\n$STORAGE_INF"
 echo -e "\e[34mSwap Memory:\e[0m $SWAP_MEM"
 }
-Hardware
+#Hardware
 
 # Function For User Information
 User(){
@@ -133,7 +133,7 @@ echo -e "\e[32mLogged-in Users:\e[0m\n$LOGGEDIN_USERS"
 echo -e "\e[32mLast Login:\e[0m $LAST_LOGIN"
 echo -e "\e[32mLast System Boot:\e[0m $LAST_SYSTEMBOOT"
 }
-User
+#User
 
 # Function For Network Information
 Network(){
@@ -145,6 +145,24 @@ Network(){
     echo -e "\e[36mDefault Gateway:\e[0m $DEFAULT_GATEWAY"
     echo -e "\e[36mWifi Name:\e[0m $SSID"
 }
-Network
+#Network
+
+#User Choice
+echo "----------------------------------"
+echo -e "Informations that can be fetched by SysPeek"
+echo "1) System Information 2) Hardware Information 3) User Information 4) Network Information 5)all information"
+read -p "Enter your choice " userChoice
+case $userChoice in 
+1)  System;;
+2)  Hardware;;
+3)  User;;
+4)  Network;;
+5)  System 
+    Hardware 
+    User 
+    Network ;;
+*) echo -e "Invalid choice, please select any one option from [1-5]";;
+esac
+
 
 
